@@ -1,0 +1,559 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #f4f6f8;
+    /* O fundo cinzento claro */
+    color: #333;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #64748b;
+    /* Cinzento médio para os links padrão */
+    font-weight: 500;
+}
+
+/* O GRANDE ABRAÇO */
+.app-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.content-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sidebar-list-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between;
+    padding: 6px 10px;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background 0.2s;
+}
+
+.sidebar-list-item:hover {
+    background-color: #f1f5f9;
+}
+
+/* Link com Nome e Contagem */
+.sidebar-list-item .nome-lista {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between;
+    flex-grow: 1;
+    margin: 0 8px;
+    color: #334155;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-list-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.sidebar-list-actions a {
+    color: #94a3b8;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    border-radius: 4px;
+    transition: color 0.2s;
+}
+
+.sidebar-list-actions a.btn-edit:hover {
+    color: #2563eb;
+}
+
+.sidebar-list-actions a.btn-del:hover {
+    color: #ef4444;
+}
+
+.content-title img {
+    max-width: 150px;
+    height: auto;
+    display: block;
+}
+
+.content-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.content-menu>div>a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #475569;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.content-menu>div>a:hover {
+    background-color: #f1f5f9;
+    color: #0f172a;
+}
+
+.content-menu>div.menu-ativo>a {
+    background-color: #eff6ff;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+/* A CLASSE PARA O MENU ATIVO  */
+.menu-ativo a {
+    background-color: #eff6ff;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.content-profile {
+    margin-top: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 14px;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* A ÁREA PRINCIPAL */
+.content-principal {
+    padding: 40px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* O FORMULÁRIO "INVISÍVEL"  */
+.content-form-tasks {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 5px 15px;
+    gap: 15px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.content-form-tasks input[type="text"],
+.content-form-tasks input[type="date"],
+.content-form-tasks input[type="time"] {
+    border: none;
+    outline: none;
+    padding: 10px 0;
+    background: transparent;
+}
+
+.content-form-tasks input[name="titulo"] {
+    flex-grow: 1;
+    font-size: 16px;
+}
+
+.content-form-tasks input[type="submit"] {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* OS CARTÕES DE TAREFA */
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+/* ESTRUTURA INTERNA DO CARTÃO */
+.task-info {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.task-info h3 {
+    font-size: 15px;
+    font-weight: 500;
+    color: #1e293b;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.task-info span {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: normal;
+}
+
+/* SUBTAREFAS DENTRO DO CARTÃO */
+.task-subtasks {
+    margin-top: 8px;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-top: 1px dashed #e2e8f0;
+    padding-top: 8px;
+}
+
+.task-subtasks li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #475569;
+}
+
+.task-subtasks input[type="checkbox"] {
+    accent-color: #2563eb;
+    cursor: pointer;
+}
+
+.task-actions {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.task-actions>.material-symbols-outlined {
+    cursor: pointer;
+    color: #5f6368;
+    padding: 4px;
+    border-radius: 50%;
+}
+
+.task-actions>.material-symbols-outlined:hover {
+    background-color: #f1f3f4;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    min-width: 160px;
+    flex-direction: column;
+    padding: 8px 0;
+}
+
+.task-actions:hover .dropdown-menu {
+    display: flex;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    color: #3c4043;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f3f4;
+}
+
+.dropdown-item .material-symbols-outlined {
+    font-size: 18px;
+    color: #5f6368;
+}
+
+.riscado h3 {
+    text-decoration: line-through;
+    color: #94a3b8 !important;
+    transition: all 0.3s ease;
+}
+
+.riscado {
+    opacity: 0.7;
+    text-decoration: line-through;
+    color: #94a3b8 !important;
+    transition: all 0.3s ease;
+}
+
+/* PAINEL LATERAL DE DETALHES */
+.task-details-panel {
+    width: 360px;
+    background-color: #ffffff;
+    border-left: 1px solid #e2e8f0;
+    height: 100vh;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-shrink: 0;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-header h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.btn-close-panel {
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.panel-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #2563eb;
+}
+
+.panel-title-group h3 {
+    font-size: 18px;
+    color: #0f172a;
+}
+
+.panel-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.panel-section label {
+    font-size: 13px;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+}
+
+.panel-section label .material-symbols-outlined {
+    font-size: 18px;
+}
+
+.panel-section p {
+    font-size: 14px;
+    color: #334155;
+    padding-left: 24px;
+}
+
+.panel-subtasks {
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.panel-subtasks li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #334155;
+}
+
+.empty-subtasks {
+    font-size: 13px;
+    color: #94a3b8;
+    font-style: italic;
+}
+
+.panel-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.btn-delete-task {
+    color: #ef4444;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.input-descricao {
+    width: 100%;
+    border: 1px solid transparent;
+    /* Borda invisível por padrão */
+    background-color: transparent;
+    font-size: 14px;
+    color: #334155;
+    padding: 8px;
+    border-radius: 6px;
+    resize: none;
+    /* Impede que o utilizador estique a caixa */
+    outline: none;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.input-descricao:hover {
+    background-color: #f1f5f9;
+}
+
+.input-descricao:focus {
+    background-color: #ffffff;
+    border-color: #cbd5e1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    resize: vertical;
+}
+
+/* Aplica o efeito invisível/hover ao Título e Data */
+.input-titulo,
+.input-data {
+    width: 100%;
+    border: 1px solid transparent;
+    background-color: transparent;
+    font-size: 14px;
+    color: #334155;
+    padding: 8px;
+    border-radius: 6px;
+    outline: none;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.input-titulo:hover,
+.input-data:hover {
+    background-color: #f1f5f9;
+}
+
+.input-titulo:focus,
+.input-data:focus {
+    background-color: #ffffff;
+    border-color: #cbd5e1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.panel-title-group .input-titulo {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+/* Links do Rodapé */
+.btn-delete-task,
+.btn-share-task {
+    text-decoration: none;
+}
+
+.btn-share-task {
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 12px;
+}
+
+/* Formulário de adicionar subtarefas */
+.panel-section form {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    padding-left: 24px;
+}
+
+.panel-section form input[type="text"] {
+    flex: 1;
+    padding: 6px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    outline: none;
+    font-size: 13px;
+}
+
+.panel-section form input[type="submit"] {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+
+.panel-section form input[type="submit"]:hover {
+    background: #e2e8f0;
+}
+
+/* RESPONSIVO */
+@media(min-width: 768px) {
+    .app-container {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        width: 250px;
+        min-height: 100vh;
+    }
+}
